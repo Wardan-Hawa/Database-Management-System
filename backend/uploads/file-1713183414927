@@ -1,0 +1,7 @@
+data <- read.csv("", sep = " ")
+#QUESTION 5 (a)
+healthy <- data$Age[data$Metastases == "No"]
+metastases <- data$Age[data$Metastases == "Yes"]
+
+summary(healthy)
+summary(metastases)
