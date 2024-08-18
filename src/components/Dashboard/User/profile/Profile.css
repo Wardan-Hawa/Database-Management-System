@@ -1,0 +1,76 @@
+.redpoint {
+  color: red;
+}
+body{
+  margin: 0;
+  padding: 0;
+}
+.info {
+  color: #055160;
+  background-color: #cff4fc;
+  border-color: #b6effb;
+  width: 566px;
+  height: 58px;
+  border-radius: 15px;
+  font-size: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  padding: 15px;
+  align-items: center;
+  position: relative;
+
+}
+
+.imgpd{
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 120px;
+
+
+  
+}
+.image {
+  display: flex;
+justify-content: center;
+  align-items: center;
+}
+.inputstyle{
+  appearance: none;
+  background-clip: padding-box;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 0.375rem;
+  color: #212529;
+  display: block;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  padding: 0.375rem 0.75rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  width: 100%;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+
+@media screen and (max-width: 768px){
+  .widgethide {
+      display: none;
+  }
+  
+}
+
+
+
+

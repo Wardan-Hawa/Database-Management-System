@@ -1,0 +1,25 @@
+.drugs-overlay {
+    background-color: rgba(0, 0, 0, .3);
+    position: fixed;
+    z-index: 300;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+}
+.drugs-modal {
+    position: fixed;
+    z-index: 301;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFF;
+    border: #ddd 1px solid;
+    box-shadow: 0 0 10px #aaa;
+    min-width: 300px;
+    width: 50%;
+    max-width: 98%;
+}
+.doctor-line {
+    gap: 20px;
+}

@@ -1,0 +1,24 @@
+.messages-container {
+    border: 1px solid #efefef;
+    border-radius: 20px;
+}
+.messages {
+    height: 350px;
+    overflow: auto;
+    scroll-behavior: smooth;
+}
+.message {
+    border-radius: 6px;
+    max-width: 400px;
+    background-color: #f0f0f0;
+}
+.message.mine {
+    margin-left: auto;
+}
+.msg-box {
+    border: 0;
+    resize: none;
+}
+.border-bottom {
+    border-bottom: 1px solid #efefef;
+}
