@@ -12,7 +12,7 @@ DataNexus offers a suite of features tailored to meet the needs of researchers:
 🎥 Demonstration Videos
 
 User sign up function
-https://github.com/user-attachments/assets/cb111175-d578-492d-bf79-c6116d9ea361
+https://github.com/user-attachments/assets/d282914e-5e0a-4192-9842-369514de08d9
 
 
 User sign in function and Homescreen
