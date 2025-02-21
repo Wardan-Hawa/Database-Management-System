@@ -13,10 +13,14 @@ DataNexus offers a suite of features tailored to meet the needs of researchers:
 👥 Research Group Collaboration: Create and join research groups to collaborate with peers. Share files securely, exchange ideas, and work together seamlessly within dedicated project spaces.
 
 🗂️ Organized Structure: Utilize our intuitive file organization system to maintain a well-structured repository of research materials, minimizing the time spent searching for documents.
+Website map:
+![image](https://github.com/user-attachments/assets/a11b7977-d4c6-4f44-b35c-c069754c31e4)
 
 Database Schema:
 ![image](https://github.com/user-attachments/assets/eaea731f-25e3-4131-9b3d-626857952bc6)
 
+UML diagram:
+![image](https://github.com/user-attachments/assets/405d603d-70c5-433f-a357-0bf6c446fc59)
 
 
 🎥 Demonstration Videos
