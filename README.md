@@ -25,10 +25,6 @@ UML diagram:
 
 🎥 Demonstration Videos
 
-User sign up function
-
-https://github.com/user-attachments/assets/d282914e-5e0a-4192-9842-369514de08d9
-
 
 User sign in function and Homescreen
 
