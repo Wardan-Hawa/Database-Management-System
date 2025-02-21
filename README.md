@@ -26,11 +26,6 @@ UML diagram:
 🎥 Demonstration Videos
 
 
-User sign in function and Homescreen
-
-https://github.com/user-attachments/assets/9a4caf74-32c4-43e0-8f89-5e591fa8ec7e
-
-
 Uploading Data (privatly)
 
 https://github.com/user-attachments/assets/538bbc85-37aa-43aa-95f7-4d6e8f05af8a
