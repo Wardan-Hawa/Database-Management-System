@@ -14,6 +14,10 @@ DataNexus offers a suite of features tailored to meet the needs of researchers:
 
 🗂️ Organized Structure: Utilize our intuitive file organization system to maintain a well-structured repository of research materials, minimizing the time spent searching for documents.
 
+Database Schema:
+![image](https://github.com/user-attachments/assets/eaea731f-25e3-4131-9b3d-626857952bc6)
+
+
 
 🎥 Demonstration Videos
 
