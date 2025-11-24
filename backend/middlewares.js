@@ -25,8 +25,7 @@ const isAuth = (req, res, next) => {
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-      // Define the destination folder where files will be stored
-      cb(null, 'uploads/'); // This will create an "uploads" directory in your project folder
+      cb(null, 'uploads/');
     },
     filename: (req, file, cb) => {
       // Define the filename for the uploaded file
