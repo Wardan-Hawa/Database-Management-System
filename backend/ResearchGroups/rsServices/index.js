@@ -14,23 +14,19 @@ class ResearchGroupService {
           groupDescription: groupDescription
         }, { transaction });
   
-        // Add the current user as the founder of the new group
         await ResearchGroupMembers.create({
           userId: founderId,
           groupId: newGroup.id,
           memberRole: 'Founder'
         }, { transaction });
   
-        // Get the users for the provided emails
         const memberUsers = await User.findAll({
           where: {
             email: members
           }
         });
   
-        // Add each user as a member
         await Promise.all(memberUsers.map(user => {
-          // Skip if the user is the founder
           if (user.id !== founderId) {
             return ResearchGroupMembers.create({
               userId: user.id,
@@ -54,12 +50,12 @@ class ResearchGroupService {
             include: [{
               model: User,
               where: { id: userId },
-              attributes: ['id', 'username', 'email'] // Example attributes you might want to include
+              attributes: ['id', 'username', 'email'] 
             }]
           });
           return groups;
         } catch (error) {
-          throw error; // It's good practice to throw the error so that it can be handled further up the call stack
+          throw error; 
         }
       }
       static async leaveGroup(userId, groupId) {
@@ -77,7 +73,7 @@ class ResearchGroupService {
 
             return { message: 'Successfully left the group.' };
         } catch (error) {
-            throw error; // Propagate the error
+            throw error; 
         }
     }
     static async markAsFavorite(groupId) {
