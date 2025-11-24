@@ -4,11 +4,10 @@ const { User } = require('../../models');
 
 const createUser = async ({ username, email, password }) => {
   try {
-    // Make sure the properties match the model definition
     const newUser = await User.create({
       username,
       email,
-      password: hashPassword(password), // Ensure this is hashed if necessary
+      password: hashPassword(password), 
       
     });
 
@@ -24,12 +23,11 @@ const findUser = async (email) => {
     const user = await User.findOne({
       where: {
         [Op.or]: [{ email }, { username: email }]
-        // removed deletedAt condition as it's not in your model.
       }
     });
 
     if (user) {
-      console.log('User found:', user.toJSON()); // User details
+      console.log('User found:', user.toJSON()); 
     } else {
       console.log('User not found for email:', email);
     }
