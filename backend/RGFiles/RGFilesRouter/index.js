@@ -4,14 +4,12 @@ const multer = require('multer');
 const { isAuth } = require('../../middlewares');
 const researchGroupFileService = require('../RGFilesServices');
 
-// Set up multer for file uploads
 const getFileExtension = (mimeType) => {
     switch (mimeType) {
         case 'image/jpeg':
             return '.jpg';
         case 'image/png':
             return '.png';
-        // Add other MIME types and their corresponding extensions here
         default:
             return '';}
             
@@ -28,7 +26,6 @@ const getFileExtension = (mimeType) => {
     
     const upload = multer({ storage: storage });
 
-// Upload a file to a specific research group
 router.post('/:groupId/upload', isAuth, upload.single('file'), async (req, res) => {
     try {
         const { groupId } = req.params;
@@ -37,13 +34,13 @@ router.post('/:groupId/upload', isAuth, upload.single('file'), async (req, res) 
         if (!groupId) {
             return res.status(400).json({ error: 'Group ID is required' });
         }
-        const { tags } = req.body; // assuming tags are sent as a comma-separated string in the body
+        const { tags } = req.body; 
 
         const fileData = {
             fileName: req.body.fileName,
             fileType: req.file.mimetype,
             filePath: req.file.path,
-            userId: req.user.id, // assuming req.user is populated from the auth middleware
+            userId: req.user.id, 
             groupId: groupId,
             TagsList: tags
         };
@@ -55,7 +52,6 @@ router.post('/:groupId/upload', isAuth, upload.single('file'), async (req, res) 
     }
 });
 
-// Get all files for a specific research group
 router.get('/:groupId', isAuth, async (req, res) => {
     try {
         const { groupId } = req.params;
@@ -66,7 +62,6 @@ router.get('/:groupId', isAuth, async (req, res) => {
     }
 });
 
-// Delete a file from a specific research group
 router.delete('/:groupId/:fileId', isAuth, async (req, res) => {
     try {
         const { groupId, fileId } = req.params;
@@ -77,7 +72,6 @@ router.delete('/:groupId/:fileId', isAuth, async (req, res) => {
     }
 });
 
-// Get tags for a specific file in a research group
 router.get('/:groupId/:fileId/tags', isAuth, async (req, res) => {
     try {
         const { groupId, fileId } = req.params;
