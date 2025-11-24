@@ -7,13 +7,11 @@ const createGroupFileWithTags = async ({ fileName, fileType, filePath, userId, g
 
     const transaction = await sequelize.transaction();
     try {
-        // First, validate the group exists and the user belongs to it
         const group = await ResearchGroups.findByPk(groupId);
         if (!group) {
             throw new Error('Group not found');
         }
         
-        // Create a new file entry in Files table
         const file = await Files.create({
             fileName,
             fileType,
@@ -21,13 +19,11 @@ const createGroupFileWithTags = async ({ fileName, fileType, filePath, userId, g
             userId
         }, { transaction });
 
-        // Create a new association entry in ResearchGroupFiles table
         await ResearchGroupFiles.create({
             groupId: groupId,
             fileId: file.id
         }, { transaction });
 
-        // Handle tags if provided
         if (TagsList && TagsList.length > 0) {
             const tagNames = TagsList.split(',').map(tag => tag.trim());
             for (const tagName of tagNames) {
@@ -38,7 +34,6 @@ const createGroupFileWithTags = async ({ fileName, fileType, filePath, userId, g
                     transaction
                 });
                 
-                // Associate the tag with the file
                 await FileTags.create({
                     file_id: file.id,
                     tag_id: tag.id
@@ -86,13 +81,10 @@ const deleteGroupFile = async (groupId, fileId) => {
             throw new Error('File not found');
         }
 
-        // Optional: Delete the physical file from storage
         fs.unlinkSync(file.filePath);
 
-        // Delete the file association with the group
         await groupFile.destroy({ transaction });
 
-        // Delete the file record from the database
         await file.destroy({ transaction });
 
         await transaction.commit();
@@ -103,7 +95,6 @@ const deleteGroupFile = async (groupId, fileId) => {
 };
 
 const getGroupFileTags = async (groupId, fileId) => {
-    // Check if the file is part of the group
     const groupFile = await ResearchGroupFiles.findOne({
         where: { groupId, fileId }
     });
