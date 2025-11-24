@@ -11,7 +11,6 @@ const getFileExtension = (mimeType) => {
             return '.jpg';
         case 'image/png':
             return '.png';
-        // Add other MIME types and their corresponding extensions here
         default:
             return '';}
             
@@ -36,8 +35,8 @@ const uploadFile = async (req, res) => {
         }
 
         const { originalname, mimetype, path } = req.file;
-        const userId = req.user?.id; // Assuming you have user information in req.user
-        const tagsList = req.body.tags; // Assuming tags are sent as a comma-separated string
+        const userId = req.user?.id;
+        const tagsList = req.body.tags;
 
         const newFile = await fileService.createFileWithTags({
             fileName: req.body.fileName,
@@ -55,7 +54,7 @@ const uploadFile = async (req, res) => {
 };
 const getAllFiles = async (req, res) => {
     try {
-        const files = await fileService.getAllFiles(); // Service function to get all files
+        const files = await fileService.getAllFiles(); 
         return res.status(200).json(files);
     } catch (err) {
         console.error('Error:', err);
@@ -71,10 +70,8 @@ const deleteFile = async (fileId) => {
             throw new Error('File not found');
         }
 
-        // Optional: Delete the physical file from storage
         fs.unlinkSync(file.filePath);
 
-        // Delete the file record from the database
         await file.destroy({ transaction });
 
         await transaction.commit();
@@ -87,24 +84,20 @@ const deleteFile = async (fileId) => {
 
 const getFileTags = async (req, res) => {
     try {
-        // Extract the fileId from the request parameters
         const { fileId } = req.params;
 
-        // Find the file and include the associated tags
         const file = await Files.findByPk(fileId, {
             include: [{
                 model: Tags,
-                through: { attributes: [] }, // Only include the Tags model and exclude the junction table attributes
+                through: { attributes: [] }, 
                 as: 'Tags'
             }]
         });
 
-        // If the file does not exist, send a 404 response
         if (!file) {
             return res.status(404).json({ message: 'File not found' });
         }
 
-        // Respond with the tags
         res.status(200).json(file.Tags);
     } catch (err) {
         console.error('Error:', err);
