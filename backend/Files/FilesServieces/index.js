@@ -10,7 +10,6 @@ const getFileTags = async (fileId) => {
         }]
     });
 
-    // Extract the tag names from the fileTags objects
     const tags = fileTags.map(ft => ft.Tag.TagName);
 
     return tags;
@@ -27,7 +26,6 @@ const createFileWithTags = async ({ fileName, fileType, filePath, userId, TagsLi
                 userId
             }, { transaction });
             console.log("Created file:", file.toJSON());
-            // Handle tags only if TagsList is provided
             if (TagsList) {
                 const tagNames = TagsList.split(',').map(tag => tag.trim());
                 for (const tagName of tagNames) {
@@ -40,10 +38,9 @@ const createFileWithTags = async ({ fileName, fileType, filePath, userId, TagsLi
                     });
                     console.log("Created tag:", tag.toJSON());
 
-                    // Associate the tag with the file
                     await FileTags.create({
                         file_id: file.id, 
-                        tag_id: tag.id // Make sure this matches the model definition
+                        tag_id: tag.id
                     }, { transaction });
                 }
             }
