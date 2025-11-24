@@ -1,4 +1,4 @@
-const { sequelize } = require('./db'); // Update the path to where you configure your Sequelize instance
+const { sequelize } = require('./db'); 
 const { DataTypes } = require('sequelize');
 
 // User model
