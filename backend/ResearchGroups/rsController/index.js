@@ -3,7 +3,7 @@ const ResearchGroupService = require('../rsServices');
 class ResearchGroupController {
     static async create(req, res) {
         try {
-          const userId = req.user.id; // Extract user ID from request
+          const userId = req.user.id; 
           const newGroup = await ResearchGroupService.createResearchGroup(req.body, userId);
           res.status(201).json(newGroup);
         } catch (error) {
@@ -13,7 +13,7 @@ class ResearchGroupController {
 
   static async getGroupsForCurrentUser(req, res) {
     try {
-        const userId = req.user.id; // Or however you're getting the user's ID
+        const userId = req.user.id; 
         const groups = await ResearchGroupService.getGroupsForUser(userId);
         res.json(groups);
       } catch (error) {
@@ -22,7 +22,7 @@ class ResearchGroupController {
   }
   static async leaveGroup(req, res) {
     try {
-      const userId = req.user.id; // Assuming you have user's ID from authentication
+      const userId = req.user.id; 
       const { groupId } = req.params;
 
       await ResearchGroupService.leaveGroup(userId, groupId);
