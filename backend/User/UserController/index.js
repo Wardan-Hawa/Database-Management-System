@@ -4,7 +4,6 @@ const auth_services = require("../../authServices");
 const transformers = require("../../transformers");
 const bcryptjs = require("bcryptjs");
 
-// Helper function to validate email address
 const isValidEmail = (email) => {
   const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
   return emailRegex.test(email);
@@ -14,7 +13,6 @@ const register = async (req, res) => {
     try {
       const { username, password, email, passwordConfirmation } = req.body;
   
-      // Validate request data
       if (!username || username.length < 3) {
         return res.status(400).json({ error: 'username must be at least 3 characters long' });
       }
@@ -69,7 +67,7 @@ const login = async (req, res) => {
   
       const transformedUser = transformers.userTransformer(user);
       const token = auth_services.tokenGenerator({
-        id: user.id, // Adjusted to match the model field
+        id: user.id, 
         // type: user.UserType, 
       });
   
